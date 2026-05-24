@@ -80,7 +80,9 @@ jobs:
           dart cli/cli.dart install-dependencies --platform=${{matrix.platform}} --arch=${{matrix.arch}}
 
       - name: Sign Apk
-        if: ${{ matrix.platform == 'android' && secrets.KEYSTORE != '' }}
+        if: ${{ matrix.platform == 'android' && env.HAS_KEYSTORE == 'true' }}
+        env:
+          HAS_KEYSTORE: ${{ secrets.KEYSTORE != '' }}
         run: |
           echo '${{ secrets.KEYSTORE }}' | base64 --decode > android/app/upload-keystore.jks
           echo '${{ secrets.KEY_PROPERTIES }}' > android/key.properties
