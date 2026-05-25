@@ -82,11 +82,15 @@ android {
         release {
             if (keystoreProperties['storeFile'] != null) {
                 signingConfig signingConfigs.release
+            } else {
+                signingConfig signingConfigs.debug
             }
         }
         debug {
             if (keystoreProperties['storeFile'] != null) {
                 signingConfig signingConfigs.release
+            } else {
+                signingConfig signingConfigs.debug
             }
         }
     }
@@ -101,6 +105,8 @@ android {
             versionNameSuffix "-nightly"
             if (keystoreProperties['storeFile'] != null) {
                 signingConfig signingConfigs.release
+            } else {
+                signingConfig signingConfigs.debug
             }
         }
         dev {
@@ -110,6 +116,8 @@ android {
             versionNameSuffix "-dev"
             if (keystoreProperties['storeFile'] != null) {
                 signingConfig signingConfigs.release
+            } else {
+                signingConfig signingConfigs.debug
             }
         }
         stable {
@@ -117,6 +125,8 @@ android {
             resValue "string", "app_name_en", "Spotube"
             if (keystoreProperties['storeFile'] != null) {
                 signingConfig signingConfigs.release
+            } else {
+                signingConfig signingConfigs.debug
             }
         }
     }
