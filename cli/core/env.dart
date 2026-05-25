@@ -18,7 +18,7 @@ enum BuildChannel {
 
 class CliEnv {
   static final channel = BuildChannel.fromEnvironment("CHANNEL");
-  static final dotenv = Platform.environment["DOTENV"]!;
-  static final ghRunNumber = Platform.environment["GITHUB_RUN_NUMBER"];
-  static final flutterVersion = Platform.environment["FLUTTER_VERSION"]!;
+  static final dotenv = Platform.environment["DOTENV"] ?? "";
+  static final ghRunNumber = Platform.environment["GITHUB_RUN_NUMBER"] ?? "1";
+  static final flutterVersion = Platform.environment["FLUTTER_VERSION"] ?? "3.35.2";
 }
