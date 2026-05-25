@@ -17,3 +17,13 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
+subprojects {
+    project.configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            if (details.requested.group == 'com.github.teamnewpipe' && details.requested.name == 'NewPipeExtractor') {
+                details.useVersion("v0.26.0")
+            }
+        }
+    }
+}
